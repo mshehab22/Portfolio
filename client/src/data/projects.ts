@@ -27,7 +27,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: "legends-of-alden-1",
-    title: "Legends of Alden: Origins",
+    title: "Legends of Alden I",
     category: "Game",
     status: "Ongoing",
     shortPurpose: "The first entry in the Legends of Alden trilogy. A narrative-driven RPG where I owned the player gameplay systems and served as team lead.",
@@ -47,7 +47,7 @@ export const projects: Project[] = [
   },
   {
     slug: "legends-of-alden-2",
-    title: "Legends of Alden: The Awakening",
+    title: "Legends of Alden II",
     category: "Game",
     status: "Ongoing",
     shortPurpose: "The second entry in the trilogy. Expanding the Alden universe with refined gameplay systems and deeper mechanics.",
@@ -66,7 +66,7 @@ export const projects: Project[] = [
   },
   {
     slug: "legends-of-alden-3",
-    title: "Legends of Alden: Echoes",
+    title: "Legends of Alden III",
     category: "Game",
     status: "Ongoing",
     shortPurpose: "A small Unreal mini-RPG built by a team of two, focusing on gameplay systems and scalable architecture.",

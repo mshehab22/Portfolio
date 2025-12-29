@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Layout } from "@/components/layout/Layout";
-import { ProjectSection } from "@/components/ProjectSection";
+import { ProjectCard } from "@/components/ProjectCard";
 import { Button } from "@/components/ui/button";
-import { projects, getProjectsByCategory, type ProjectCategory } from "@/data/projects";
+import { profile } from "@/data/profile";
+import { getProjectsByCategory, type ProjectCategory } from "@/data/projects";
 
 type FilterOption = "All" | ProjectCategory;
 
@@ -11,6 +12,9 @@ export default function Projects() {
   
   const games = getProjectsByCategory("Game");
   const software = getProjectsByCategory("Software");
+  
+  const aldenGames = games.filter((p) => p.slug.startsWith("legends-of-alden-"));
+  const otherGames = games.filter((p) => !p.slug.startsWith("legends-of-alden-"));
 
   const filterOptions: FilterOption[] = ["All", "Game", "Software"];
 
@@ -33,7 +37,6 @@ export default function Projects() {
                 size="sm"
                 onClick={() => setFilter(option)}
                 data-testid={`button-filter-${option.toLowerCase()}`}
-                className={filter === option ? "" : ""}
               >
                 {option === "Game" ? "Games" : option}
               </Button>
@@ -42,7 +45,44 @@ export default function Projects() {
         </header>
 
         {(filter === "All" || filter === "Game") && games.length > 0 && (
-          <ProjectSection title="Games" projects={games} />
+          <section className="py-12 md:py-16" data-testid="section-games">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="text-section-title-games">
+              Games
+            </h2>
+            <div className="h-px bg-border mb-8" />
+            
+            <div className="mb-8 p-4 rounded-md border border-border bg-muted/30" data-testid="callout-trilogy">
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {profile.trilogyNote}
+              </p>
+            </div>
+
+            {aldenGames.length > 0 && (
+              <div className="mb-12">
+                <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-6" data-testid="text-subsection-alden">
+                  Legends of Alden Trilogy
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {aldenGames.map((project) => (
+                    <ProjectCard key={project.slug} project={project} />
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {otherGames.length > 0 && (
+              <div>
+                <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-6" data-testid="text-subsection-other-games">
+                  Other Games
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {otherGames.map((project) => (
+                    <ProjectCard key={project.slug} project={project} />
+                  ))}
+                </div>
+              </div>
+            )}
+          </section>
         )}
 
         {(filter === "All" || filter === "Software") && software.length > 0 && (
@@ -50,7 +90,17 @@ export default function Projects() {
             {filter === "All" && games.length > 0 && (
               <div className="border-t border-border" />
             )}
-            <ProjectSection title="Software" projects={software} />
+            <section className="py-12 md:py-16" data-testid="section-software">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="text-section-title-software">
+                Software
+              </h2>
+              <div className="h-px bg-border mb-8" />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {software.map((project) => (
+                  <ProjectCard key={project.slug} project={project} />
+                ))}
+              </div>
+            </section>
           </>
         )}
       </div>

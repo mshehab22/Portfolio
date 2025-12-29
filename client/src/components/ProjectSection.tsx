@@ -11,7 +11,10 @@ export function ProjectSection({ title, projects }: ProjectSectionProps) {
 
   return (
     <section className="py-12 md:py-16" data-testid={`section-${title.toLowerCase()}`}>
-      <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-8" data-testid={`text-section-title-${title.toLowerCase()}`}>{title}</h2>
+      <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid={`text-section-title-${title.toLowerCase()}`}>
+        {title}
+      </h2>
+      <div className="h-px bg-border mb-8" />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {projects.map((project) => (
           <ProjectCard key={project.slug} project={project} />
