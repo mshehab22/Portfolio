@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { ProjectCard } from "@/components/ProjectCard";
 import { Button } from "@/components/ui/button";
-import { profile } from "@/data/profile";
 import { getProjectsByCategory, type ProjectCategory } from "@/data/projects";
 
 type FilterOption = "All" | ProjectCategory;
@@ -13,8 +12,8 @@ export default function Projects() {
   const games = getProjectsByCategory("Game");
   const software = getProjectsByCategory("Software");
   
-  const aldenGames = games.filter((p) => p.slug.startsWith("legends-of-alden-"));
-  const otherGames = games.filter((p) => !p.slug.startsWith("legends-of-alden-"));
+  const trilogyProjects = games.filter((p) => p.series === "Legends of Alden");
+  const otherGameProjects = games.filter((p) => p.series !== "Legends of Alden");
 
   const filterOptions: FilterOption[] = ["All", "Game", "Software"];
 
@@ -49,34 +48,33 @@ export default function Projects() {
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="text-section-title-games">
               Games
             </h2>
-            <div className="h-px bg-border mb-8" />
-            
-            <div className="mb-8 p-4 rounded-md border border-border bg-muted/30" data-testid="callout-trilogy">
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {profile.trilogyNote}
-              </p>
-            </div>
+            <div className="h-px bg-border mb-12" />
 
-            {aldenGames.length > 0 && (
-              <div className="mb-12">
-                <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-6" data-testid="text-subsection-alden">
-                  Legends of Alden Trilogy
-                </h3>
+            {trilogyProjects.length > 0 && (
+              <div className="mb-16">
+                <div className="text-center mb-8">
+                  <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-3" data-testid="text-subsection-trilogy">
+                    Legends of Alden Trilogy
+                  </h3>
+                  <p className="text-muted-foreground max-w-2xl mx-auto" data-testid="text-trilogy-description">
+                    A long-term series of game projects where each entry builds on the last. I use the trilogy to iterate on gameplay systems, architecture, and design decisions over time.
+                  </p>
+                </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {aldenGames.map((project) => (
+                  {trilogyProjects.map((project) => (
                     <ProjectCard key={project.slug} project={project} />
                   ))}
                 </div>
               </div>
             )}
 
-            {otherGames.length > 0 && (
+            {otherGameProjects.length > 0 && (
               <div>
                 <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-6" data-testid="text-subsection-other-games">
                   Other Games
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {otherGames.map((project) => (
+                  {otherGameProjects.map((project) => (
                     <ProjectCard key={project.slug} project={project} />
                   ))}
                 </div>

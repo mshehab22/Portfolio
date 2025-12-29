@@ -6,9 +6,6 @@ export const profile = {
   subtitle:
     "I build gameplay systems and maintainable software, with a strong focus on architecture, clarity, and long-term growth.",
 
-  trilogyNote:
-    "Legends of Alden is an evolving trilogy where I build complete games over time. Each entry starts with a strong gameplay foundation and expands as I iterate.",
-
   shortBio:
     "I’m a software engineer and game developer focused on building clean, maintainable systems and long-term projects. I care deeply about structure, clarity, and understanding systems at a fundamental level.",
 

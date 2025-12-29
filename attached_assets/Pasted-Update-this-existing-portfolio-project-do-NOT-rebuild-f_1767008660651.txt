@@ -1,0 +1,58 @@
+Update this existing portfolio project (do NOT rebuild from scratch). Keep the current layout, routing, and styling system. Make the following targeted UI changes on the Projects page:
+
+GOAL:
+In the Games section, create a dedicated "Legends of Alden Trilogy" subsection where the three Alden projects appear together in a single centered row, with a centered title and centered short description ABOVE the row. The trilogy description must NOT be inside a boxed/card UI. It should look like normal page text (typography only), aligned center, with spacing like a section intro.
+
+CHANGES:
+
+1) PROJECTS PAGE FILTER TABS
+- Keep the existing All / Games / Software tabs at the top.
+- When "All" is selected: show Games section then Software section (current behavior is fine).
+- When "Games" is selected: show Games section only.
+- When "Software" is selected: show Software section only.
+
+2) GAMES SECTION STRUCTURE
+Inside the Games section (when visible), restructure the layout like this:
+
+A) Games header (keep current "Games" header)
+B) Immediately under Games header, add the trilogy subsection:
+
+- Centered H3 title:
+  "Legends of Alden Trilogy"
+
+- Centered paragraph directly under the title (NOT in a box/card):
+  "A long-term series of game projects where each entry builds on the last. I use the trilogy to iterate on gameplay systems, architecture, and design decisions over time."
+
+- Under that paragraph, render the 3 Legends of Alden projects in a single grid row:
+  - Desktop: 3 columns
+  - Tablet: 2 columns
+  - Mobile: 1 column
+  Use the same ProjectCard component as the rest of the site.
+  Add consistent vertical spacing above/below.
+
+C) After the trilogy row, render the rest of the game projects normally (same ProjectCard grid).
+- Exclude the three Alden projects from the “other games” list to avoid duplicates.
+
+3) DATA-DRIVEN IMPLEMENTATION (important)
+Do NOT hardcode the trilogy items in the page.
+Instead, in src/data/projects.ts:
+- Add a new optional field for projects: series?: string
+- Set series: "Legends of Alden" for the three Alden projects.
+Then in the Projects page:
+- Derive trilogyProjects = projects where category==="Game" and series==="Legends of Alden"
+- Derive otherGameProjects = projects where category==="Game" and series!=="Legends of Alden"
+
+4) CENTERING REQUIREMENTS
+- The "Legends of Alden Trilogy" title and its paragraph must both be centered horizontally.
+- The paragraph must be plain text (no background, no border, no rounded rectangle).
+
+5) KEEP EVERYTHING ELSE THE SAME
+- Do not change the rest of the site layout.
+- Do not change routing.
+- Do not remove existing content.
+- Ensure the page still works with npm run dev.
+
+After implementing, verify:
+- All tab filters still work.
+- Games section shows trilogy centered + row of 3, then other games below.
+- No duplicates of Alden projects.

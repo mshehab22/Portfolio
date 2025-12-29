@@ -22,6 +22,7 @@ export interface Project {
   };
   thumbnailImage?: string;
   galleryImages?: string[];
+  series?: string;
 }
 
 export const projects: Project[] = [
@@ -30,6 +31,7 @@ export const projects: Project[] = [
     title: "Legends of Alden I",
     category: "Game",
     status: "Ongoing",
+    series: "Legends of Alden",
     shortPurpose: "The first entry in the Legends of Alden trilogy. A narrative-driven RPG where I owned the player gameplay systems and served as team lead.",
     purpose: "Legends of Alden: Origins is the foundation of an evolving trilogy. This first entry establishes the core gameplay loop, world-building, and player systems that will carry through the series. Built with a focus on creating a strong gameplay foundation that can be expanded and refined over time.",
     role: "Team Lead & Gameplay Systems Owner. I designed and implemented all player-facing gameplay systems including movement, combat, and camera control. Other aspects of the game will be rebuilt and expanded as part of the ongoing trilogy development.",
@@ -50,6 +52,7 @@ export const projects: Project[] = [
     title: "Legends of Alden II",
     category: "Game",
     status: "Ongoing",
+    series: "Legends of Alden",
     shortPurpose: "The second entry in the trilogy. Expanding the Alden universe with refined gameplay systems and deeper mechanics.",
     purpose: "Legends of Alden: The Awakening builds on the foundation of Origins, refining core systems and introducing new gameplay mechanics. This entry focuses on iterating on what worked while expanding the scope of player interactions and world design.",
     role: "Team Lead & Gameplay Systems Owner. Continuing my ownership of all player gameplay systems, I'm refining the movement and combat systems while building out more complex player interactions. Other systems will be developed and integrated as the trilogy evolves.",
@@ -69,6 +72,7 @@ export const projects: Project[] = [
     title: "Legends of Alden III",
     category: "Game",
     status: "Ongoing",
+    series: "Legends of Alden",
     shortPurpose: "A small Unreal mini-RPG built by a team of two, focusing on gameplay systems and scalable architecture.",
     purpose: "Legends of Alden: Echoes is a focused mini-RPG built collaboratively with my brother. This entry emphasizes clean, scalable architecture and demonstrates how solid gameplay foundations can support a complete game experience even with a small team.",
     role: "Co-Developer (team of 2). Working alongside my brother, I'm responsible for all gameplay systems implementation and establishing the technical architecture. Our small team size allows for rapid iteration and tight feedback loops on gameplay feel.",
