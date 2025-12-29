@@ -18,11 +18,14 @@ export default function Home() {
             <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4" data-testid="text-hero-name">
               {profile.name}
             </h1>
-            <p className="text-xl md:text-2xl font-medium text-muted-foreground mb-6" data-testid="text-hero-headline">
+            <p className="text-xl md:text-2xl font-medium text-muted-foreground mb-4" data-testid="text-hero-headline">
               {profile.headline}
             </p>
-            <p className="text-muted-foreground leading-relaxed mb-8" data-testid="text-hero-bio">
-              {profile.shortBio}
+            <p className="text-muted-foreground leading-relaxed mb-6" data-testid="text-hero-subtitle">
+              {profile.subtitle}
+            </p>
+            <p className="text-sm text-muted-foreground/80 leading-relaxed mb-8 max-w-xl mx-auto" data-testid="text-hero-trilogy">
+              {profile.trilogyNote}
             </p>
             <Link href="/projects" data-testid="nav-cta-projects">
               <Button size="lg" data-testid="button-view-projects">

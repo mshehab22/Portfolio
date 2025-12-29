@@ -1,0 +1,56 @@
+Update this existing portfolio project (do NOT rebuild from scratch). Keep the current layout and routing, but make these targeted changes to improve clarity, honesty, and future editability.
+
+1) POSITIONING (Home page hero)
+- Set my title to: "Software Engineer | Gameplay & Game Systems Developer"
+- Add a short subtitle: "I build maintainable software and gameplay systems, with a focus on clean architecture and player experience."
+- Add a short trilogy note (1–2 sentences):
+  "Legends of Alden is an evolving trilogy where I build complete games over time. Each entry starts with a strong gameplay foundation and expands as I iterate."
+
+2) PROJECT CATEGORIES
+- Keep two sections: Games and Software (do not merge everything into one list).
+- On the Projects page, add a small toggle or tabs: All / Games / Software (optional if simple). Default can remain as Games then Software.
+
+3) PROJECT STATUS TERMS
+- Remove any status labels like "Released", "Prototype", "Production".
+- Replace with ONLY: "Ongoing", "In Progress", "Completed".
+- Set:
+  - Legends of Alden 1: Ongoing
+  - Legends of Alden 2: Ongoing
+  - Legends of Alden 3: Ongoing (or In Progress if you prefer)
+  - Heist Gone Wrong: In Progress
+  - ABET Portal: In Progress (or Completed if already done)
+
+4) PROJECT COPY (make it honest + strong, no apologizing)
+Update project descriptions to reflect my true ownership:
+- Alden 1 and Alden 2: I owned the player gameplay systems and was team lead; other parts will be rebuilt and expanded later as part of the trilogy.
+- Alden 3: small Unreal mini-RPG built by a team of 2 (me + my brother), focusing on gameplay systems and scalable architecture.
+- ABET Portal: show that it’s a serious backend C#/.NET project (auth, EF Core, database, APIs).
+- Heist Gone Wrong: Unreal club project (stealth/puzzle) where I contribute systems and leadership.
+
+5) PROJECT DETAIL PAGE STRUCTURE
+For each project detail page, add these sections (using placeholder text where needed):
+- Purpose (1–2 paragraphs)
+- My Role / Ownership (short, confident)
+- Gameplay Systems Implemented (bullets)
+- Tech Stack (tags)
+- Links (GitHub, demo/video if available)
+
+Rename any "Systems & Features" heading to "Gameplay Systems Implemented" for game projects.
+
+For Alden 1 and Alden 2, set the Gameplay Systems Implemented bullets to:
+- Movement: walk/run/jump
+- Camera control
+- Combat: attack
+- Damage + death flow
+
+6) EDITABILITY IMPROVEMENTS
+- Ensure all project data (title, slug, status, category, descriptions, bullets, tech, links, and images) is stored in ONE data file (e.g., src/data/projects.ts).
+- Ensure my personal info (name, headline, bio, socials) is stored in ONE file (e.g., src/data/profile.ts).
+- Update components/pages to render from those data files only (no hardcoded project text in pages).
+
+7) IMAGE SUPPORT (for future)
+- Add optional fields in project data: thumbnailImage and galleryImages (array).
+- Update ProjectCard to show thumbnail if available, otherwise show a placeholder.
+- Update Project Detail page to show galleryImages in a simple grid (if provided).
+
+After changes, ensure the site still runs with npm run dev and routes work (Home, Projects, Project detail, About, Resume, Contact).

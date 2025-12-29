@@ -3,13 +3,16 @@
 // =====================================================
 
 export type ProjectCategory = "Game" | "Software";
+export type ProjectStatus = "Ongoing" | "In Progress" | "Completed";
 
 export interface Project {
   slug: string;
   title: string;
   category: ProjectCategory;
-  status: string;
+  status: ProjectStatus;
   shortPurpose: string;
+  purpose: string;
+  role: string;
   systemsBullets: string[];
   tech: string[];
   links?: {
@@ -17,6 +20,8 @@ export interface Project {
     demo?: string;
     video?: string;
   };
+  thumbnailImage?: string;
+  galleryImages?: string[];
 }
 
 export const projects: Project[] = [
@@ -24,13 +29,15 @@ export const projects: Project[] = [
     slug: "legends-of-alden-1",
     title: "Legends of Alden: Origins",
     category: "Game",
-    status: "Released",
-    shortPurpose: "A narrative-driven RPG featuring dynamic combat and branching storylines set in a fantasy realm.",
+    status: "Ongoing",
+    shortPurpose: "The first entry in the Legends of Alden trilogy. A narrative-driven RPG where I owned the player gameplay systems and served as team lead.",
+    purpose: "Legends of Alden: Origins is the foundation of an evolving trilogy. This first entry establishes the core gameplay loop, world-building, and player systems that will carry through the series. Built with a focus on creating a strong gameplay foundation that can be expanded and refined over time.",
+    role: "Team Lead & Gameplay Systems Owner. I designed and implemented all player-facing gameplay systems including movement, combat, and camera control. Other aspects of the game will be rebuilt and expanded as part of the ongoing trilogy development.",
     systemsBullets: [
-      "Implemented turn-based combat system with status effects and skill trees",
-      "Designed save/load system with multiple save slots and auto-save functionality",
-      "Built dialogue system supporting branching narratives and player choices",
-      "Created inventory management with item stacking and equipment slots",
+      "Movement: walk/run/jump",
+      "Camera control",
+      "Combat: attack",
+      "Damage + death flow",
     ],
     tech: ["Unity", "C#", "Addressables", "SQLite"],
     links: {
@@ -42,13 +49,15 @@ export const projects: Project[] = [
     slug: "legends-of-alden-2",
     title: "Legends of Alden: The Awakening",
     category: "Game",
-    status: "In Development",
-    shortPurpose: "Sequel expanding the Alden universe with real-time combat and multiplayer features.",
+    status: "Ongoing",
+    shortPurpose: "The second entry in the trilogy. Expanding the Alden universe with refined gameplay systems and deeper mechanics.",
+    purpose: "Legends of Alden: The Awakening builds on the foundation of Origins, refining core systems and introducing new gameplay mechanics. This entry focuses on iterating on what worked while expanding the scope of player interactions and world design.",
+    role: "Team Lead & Gameplay Systems Owner. Continuing my ownership of all player gameplay systems, I'm refining the movement and combat systems while building out more complex player interactions. Other systems will be developed and integrated as the trilogy evolves.",
     systemsBullets: [
-      "Developing real-time action combat with combo chains and dodge mechanics",
-      "Building networked multiplayer supporting co-op dungeon crawling",
-      "Implementing procedural dungeon generation with scalable difficulty",
-      "Creating modular quest system with dynamic objectives",
+      "Movement: walk/run/jump",
+      "Camera control",
+      "Combat: attack",
+      "Damage + death flow",
     ],
     tech: ["Unreal Engine", "C++", "Blueprints", "Steam SDK"],
     links: {
@@ -57,49 +66,55 @@ export const projects: Project[] = [
   },
   {
     slug: "legends-of-alden-3",
-    title: "Legends of Alden: Mobile",
+    title: "Legends of Alden: Echoes",
     category: "Game",
-    status: "Prototype",
-    shortPurpose: "Mobile adaptation bringing the Alden experience to iOS and Android platforms.",
+    status: "Ongoing",
+    shortPurpose: "A small Unreal mini-RPG built by a team of two, focusing on gameplay systems and scalable architecture.",
+    purpose: "Legends of Alden: Echoes is a focused mini-RPG built collaboratively with my brother. This entry emphasizes clean, scalable architecture and demonstrates how solid gameplay foundations can support a complete game experience even with a small team.",
+    role: "Co-Developer (team of 2). Working alongside my brother, I'm responsible for all gameplay systems implementation and establishing the technical architecture. Our small team size allows for rapid iteration and tight feedback loops on gameplay feel.",
     systemsBullets: [
-      "Adapting control schemes for touch-based input systems",
-      "Optimizing rendering pipeline for mobile GPU constraints",
-      "Implementing cloud save synchronization across devices",
-      "Building monetization framework with ethical design principles",
+      "Core player controller with responsive movement",
+      "Modular combat system with extensible attack patterns",
+      "Scalable architecture designed for future expansion",
+      "Clean codebase emphasizing maintainability",
     ],
-    tech: ["Unity", "C#", "Firebase", "iOS", "Android"],
+    tech: ["Unreal Engine", "C++", "Blueprints"],
   },
   {
     slug: "heist-gone-wrong",
     title: "Heist Gone Wrong",
     category: "Game",
-    status: "Game Jam Winner",
-    shortPurpose: "A stealth puzzle game where players navigate procedurally generated bank vaults.",
+    status: "In Progress",
+    shortPurpose: "A stealth puzzle game developed with a university club. I contribute gameplay systems and provide team leadership.",
+    purpose: "Heist Gone Wrong is a collaborative stealth puzzle game developed with my university game development club. The game challenges players to navigate through increasingly complex levels using stealth, timing, and puzzle-solving skills.",
+    role: "Systems Developer & Team Lead. I contribute core gameplay systems including AI behavior and level mechanics, while also providing leadership and mentorship to club members. This project combines technical development with team coordination.",
     systemsBullets: [
-      "Designed AI patrol system with vision cones and alert states",
-      "Built procedural level generation ensuring solvable layouts",
-      "Implemented sound propagation system affecting enemy awareness",
-      "Created time-rewind mechanic for puzzle solving",
+      "AI patrol system with vision cones and alert states",
+      "Sound propagation affecting enemy awareness",
+      "Stealth mechanics with detection thresholds",
+      "Puzzle elements integrated with stealth gameplay",
     ],
-    tech: ["Godot", "GDScript", "Aseprite"],
+    tech: ["Unreal Engine", "C++", "Blueprints"],
     links: {
       github: "https://github.com/example/heist-gone-wrong",
-      demo: "https://example.itch.io/heist-gone-wrong",
     },
   },
   {
     slug: "abet-portal",
     title: "ABET Accreditation Portal",
     category: "Software",
-    status: "Production",
-    shortPurpose: "Web platform streamlining ABET accreditation documentation and assessment workflows.",
+    status: "In Progress",
+    shortPurpose: "A full-stack web application for managing ABET accreditation workflows. Built with C#/.NET, featuring authentication, Entity Framework Core, and RESTful APIs.",
+    purpose: "The ABET Accreditation Portal streamlines the complex process of academic accreditation documentation. This is a serious backend-focused project that handles sensitive academic data through secure, well-architected APIs and database operations.",
+    role: "Full-Stack Developer. I designed and implemented the complete backend architecture including authentication systems, database schema, and RESTful API endpoints. The frontend provides intuitive interfaces for faculty and administrators to manage accreditation workflows.",
     systemsBullets: [
-      "Built role-based access control for faculty, administrators, and reviewers",
-      "Implemented document versioning with audit trail capabilities",
-      "Created automated report generation from assessment data",
-      "Designed dashboard visualizations for outcome achievement metrics",
+      "Authentication and authorization with role-based access control",
+      "Entity Framework Core with SQL Server database",
+      "RESTful API design following best practices",
+      "Document management with versioning and audit trails",
+      "Dashboard visualizations for outcome metrics",
     ],
-    tech: ["React", "Node.js", "PostgreSQL", "Docker"],
+    tech: ["C#", ".NET", "Entity Framework Core", "SQL Server", "React", "Docker"],
     links: {
       github: "https://github.com/example/abet-portal",
     },

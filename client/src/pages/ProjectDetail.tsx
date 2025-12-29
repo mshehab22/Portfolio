@@ -30,6 +30,9 @@ export default function ProjectDetail() {
     );
   }
 
+  const isGame = project.category === "Game";
+  const systemsHeading = isGame ? "Gameplay Systems Implemented" : "Systems & Features";
+
   return (
     <Layout>
       <article className="mx-auto max-w-6xl px-6 md:px-8 py-16 md:py-24">
@@ -51,23 +54,41 @@ export default function ProjectDetail() {
             <Tag variant="category" data-testid="text-detail-category">{project.category}</Tag>
             <StatusIndicator status={project.status} data-testid="text-detail-status" />
           </div>
-
-          <p className="text-lg text-muted-foreground max-w-3xl leading-relaxed" data-testid="text-project-purpose">
-            {project.shortPurpose}
-          </p>
         </header>
 
+        {project.galleryImages && project.galleryImages.length > 0 && (
+          <section className="mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {project.galleryImages.map((image, index) => (
+                <div key={index} className="aspect-video bg-muted rounded-md overflow-hidden">
+                  <img 
+                    src={image} 
+                    alt={`${project.title} screenshot ${index + 1}`}
+                    className="w-full h-full object-cover"
+                    data-testid={`img-gallery-${index}`}
+                  />
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
         <section className="mb-12">
-          <h2 className="text-2xl font-semibold text-foreground mb-6" data-testid="text-section-tech">Tech Stack</h2>
-          <div className="flex flex-wrap gap-2">
-            {project.tech.map((tech, index) => (
-              <Tag key={tech} data-testid={`text-detail-tech-${index}`}>{tech}</Tag>
-            ))}
-          </div>
+          <h2 className="text-2xl font-semibold text-foreground mb-4" data-testid="text-section-purpose">Purpose</h2>
+          <p className="text-muted-foreground leading-relaxed max-w-3xl" data-testid="text-project-purpose">
+            {project.purpose}
+          </p>
         </section>
 
         <section className="mb-12">
-          <h2 className="text-2xl font-semibold text-foreground mb-6" data-testid="text-section-systems">Systems & Features</h2>
+          <h2 className="text-2xl font-semibold text-foreground mb-4" data-testid="text-section-role">My Role / Ownership</h2>
+          <p className="text-muted-foreground leading-relaxed max-w-3xl" data-testid="text-project-role">
+            {project.role}
+          </p>
+        </section>
+
+        <section className="mb-12">
+          <h2 className="text-2xl font-semibold text-foreground mb-6" data-testid="text-section-systems">{systemsHeading}</h2>
           <ul className="space-y-3">
             {project.systemsBullets.map((bullet, index) => (
               <li key={index} className="flex items-start gap-3 text-muted-foreground" data-testid={`text-bullet-${index}`}>
@@ -76,6 +97,15 @@ export default function ProjectDetail() {
               </li>
             ))}
           </ul>
+        </section>
+
+        <section className="mb-12">
+          <h2 className="text-2xl font-semibold text-foreground mb-6" data-testid="text-section-tech">Tech Stack</h2>
+          <div className="flex flex-wrap gap-2">
+            {project.tech.map((tech, index) => (
+              <Tag key={tech} data-testid={`text-detail-tech-${index}`}>{tech}</Tag>
+            ))}
+          </div>
         </section>
 
         {project.links && Object.keys(project.links).length > 0 && (

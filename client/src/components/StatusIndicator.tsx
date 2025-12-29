@@ -1,14 +1,14 @@
+import type { ProjectStatus } from "@/data/projects";
+
 interface StatusIndicatorProps {
-  status: string;
+  status: ProjectStatus | string;
   "data-testid"?: string;
 }
 
 const statusColors: Record<string, string> = {
-  "Released": "bg-green-500",
-  "Production": "bg-green-500",
-  "In Development": "bg-yellow-500",
-  "Prototype": "bg-blue-500",
-  "Game Jam Winner": "bg-purple-500",
+  "Ongoing": "bg-blue-500",
+  "In Progress": "bg-yellow-500",
+  "Completed": "bg-green-500",
 };
 
 export function StatusIndicator({ status, "data-testid": testId }: StatusIndicatorProps) {

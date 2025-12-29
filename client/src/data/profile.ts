@@ -4,7 +4,9 @@
 
 export const profile = {
   name: "Your Name",
-  headline: "Game Developer & Software Engineer",
+  headline: "Software Engineer | Gameplay & Game Systems Developer",
+  subtitle: "I build maintainable software and gameplay systems, with a focus on clean architecture and player experience.",
+  trilogyNote: "Legends of Alden is an evolving trilogy where I build complete games over time. Each entry starts with a strong gameplay foundation and expands as I iterate.",
   shortBio: "I build immersive games and robust software systems. With a focus on clean architecture and engaging user experiences, I create projects that combine technical excellence with thoughtful design.",
   email: "hello@example.com",
   github: "https://github.com/yourusername",
