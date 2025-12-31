@@ -1,15 +1,18 @@
+import { useState } from "react";
 import { useParams, Link } from "wouter";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ArrowLeft, ExternalLink, Play } from "lucide-react";
 import { SiGithub, SiYoutube } from "react-icons/si";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Tag } from "@/components/Tag";
 import { StatusIndicator } from "@/components/StatusIndicator";
-import { getProjectBySlug } from "@/data/projects";
+import { MediaModal } from "@/components/MediaModal";
+import { getProjectBySlug, type MediaItem } from "@/data/projects";
 
 export default function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>();
   const project = getProjectBySlug(slug || "");
+  const [selectedMedia, setSelectedMedia] = useState<MediaItem | null>(null);
 
   if (!project) {
     return (
@@ -32,6 +35,7 @@ export default function ProjectDetail() {
 
   const isGame = project.category === "Game";
   const systemsHeading = isGame ? "Gameplay Systems Implemented" : "Systems & Features";
+  const hasMedia = project.featuredMedia || (project.media && project.media.length > 0);
 
   return (
     <Layout>
@@ -56,20 +60,93 @@ export default function ProjectDetail() {
           </div>
         </header>
 
-        {project.galleryImages && project.galleryImages.length > 0 && (
-          <section className="mb-12">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {project.galleryImages.map((image, index) => (
-                <div key={index} className="aspect-video bg-muted rounded-md overflow-hidden">
-                  <img 
-                    src={image} 
-                    alt={`${project.title} screenshot ${index + 1}`}
-                    className="w-full h-full object-cover"
-                    data-testid={`img-gallery-${index}`}
-                  />
-                </div>
-              ))}
-            </div>
+        {hasMedia && (
+          <section className="mb-12" data-testid="section-media">
+            <h2 className="text-2xl font-semibold text-foreground mb-6" data-testid="text-section-media">Media</h2>
+            
+            {project.featuredMedia && (
+              <div className="mb-6">
+                <button
+                  onClick={() => setSelectedMedia(project.featuredMedia!)}
+                  className="w-full aspect-video bg-muted rounded-md overflow-hidden cursor-pointer hover:opacity-95 transition-opacity relative group"
+                  data-testid="button-featured-media"
+                >
+                  {project.featuredMedia.type === "video" ? (
+                    <>
+                      {project.featuredMedia.poster ? (
+                        <img
+                          src={project.featuredMedia.poster}
+                          alt={project.featuredMedia.alt || "Video thumbnail"}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-muted flex items-center justify-center">
+                          <Play className="h-16 w-16 text-muted-foreground" />
+                        </div>
+                      )}
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors">
+                        <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center">
+                          <Play className="h-8 w-8 text-foreground ml-1" />
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <img
+                      src={project.featuredMedia.src}
+                      alt={project.featuredMedia.alt || "Featured media"}
+                      className="w-full h-full object-cover"
+                      data-testid="img-featured-media"
+                    />
+                  )}
+                </button>
+                {project.featuredMedia.caption && (
+                  <p className="text-sm text-muted-foreground mt-2 text-center" data-testid="text-featured-caption">
+                    {project.featuredMedia.caption}
+                  </p>
+                )}
+              </div>
+            )}
+
+            {project.media && project.media.length > 0 && (
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                {project.media.map((item, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setSelectedMedia(item)}
+                    className="aspect-video bg-muted rounded-md overflow-hidden cursor-pointer hover:scale-[1.02] hover:shadow-md transition-all relative group"
+                    data-testid={`button-media-thumbnail-${index}`}
+                  >
+                    {item.type === "video" ? (
+                      <>
+                        {item.poster ? (
+                          <img
+                            src={item.poster}
+                            alt={item.alt || "Video thumbnail"}
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <div className="w-full h-full bg-muted flex items-center justify-center">
+                            <Play className="h-8 w-8 text-muted-foreground" />
+                          </div>
+                        )}
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors">
+                          <div className="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center">
+                            <Play className="h-5 w-5 text-foreground ml-0.5" />
+                          </div>
+                        </div>
+                      </>
+                    ) : (
+                      <img
+                        src={item.src}
+                        alt={item.alt || `Gallery image ${index + 1}`}
+                        className="w-full h-full object-cover"
+                        data-testid={`img-gallery-${index}`}
+                      />
+                    )}
+                  </button>
+                ))}
+              </div>
+            )}
           </section>
         )}
 
@@ -140,6 +217,10 @@ export default function ProjectDetail() {
           </section>
         )}
       </article>
+
+      {selectedMedia && (
+        <MediaModal media={selectedMedia} onClose={() => setSelectedMedia(null)} />
+      )}
     </Layout>
   );
 }

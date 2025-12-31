@@ -5,6 +5,14 @@
 export type ProjectCategory = "Game" | "Software";
 export type ProjectStatus = "Ongoing" | "In Progress" | "Completed";
 
+export type MediaItem = {
+  type: "image" | "video";
+  src: string;
+  poster?: string;
+  alt?: string;
+  caption?: string;
+};
+
 export interface Project {
   slug: string;
   title: string;
@@ -23,6 +31,8 @@ export interface Project {
   thumbnailImage?: string;
   galleryImages?: string[];
   series?: string;
+  featuredMedia?: MediaItem;
+  media?: MediaItem[];
 }
 
 export const projects: Project[] = [
@@ -46,6 +56,32 @@ export const projects: Project[] = [
       github: "https://github.com/example/legends-of-alden-1",
       demo: "https://example.com/play/legends-1",
     },
+    featuredMedia: {
+      type: "image",
+      src: "https://placehold.co/1200x675/1a1a2e/ffffff/png?text=Legends+of+Alden+I",
+      alt: "Legends of Alden I featured image",
+      caption: "Main gameplay screenshot from Legends of Alden I",
+    },
+    media: [
+      {
+        type: "image",
+        src: "https://placehold.co/800x450/2d2d44/ffffff/png?text=Combat+System",
+        alt: "Combat system screenshot",
+        caption: "The combat system in action",
+      },
+      {
+        type: "image",
+        src: "https://placehold.co/800x450/3d3d5c/ffffff/png?text=World+Map",
+        alt: "World map view",
+        caption: "Exploring the world of Alden",
+      },
+      {
+        type: "image",
+        src: "https://placehold.co/800x450/4d4d6e/ffffff/png?text=Character+Menu",
+        alt: "Character menu interface",
+        caption: "Character progression interface",
+      },
+    ],
   },
   {
     slug: "legends-of-alden-2",

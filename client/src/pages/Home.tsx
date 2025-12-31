@@ -25,7 +25,7 @@ export default function Home() {
               {profile.subtitle}
             </p>
             <Link href="/projects" data-testid="nav-cta-projects">
-              <Button size="lg" data-testid="button-view-projects">
+              <Button size="lg" className="bg-neutral-600 text-white hover:bg-neutral-700" data-testid="button-view-projects">
                 View My Work
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>

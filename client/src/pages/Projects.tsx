@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { ProjectCard } from "@/components/ProjectCard";
-import { Button } from "@/components/ui/button";
 import { getProjectsByCategory, type ProjectCategory } from "@/data/projects";
 
 type FilterOption = "All" | ProjectCategory;
@@ -28,17 +27,20 @@ export default function Projects() {
             A collection of games and software I've built. Each project represents a unique challenge and learning experience.
           </p>
           
-          <div className="flex gap-2" data-testid="filter-tabs">
+          <div className="flex gap-3" data-testid="filter-tabs">
             {filterOptions.map((option) => (
-              <Button
+              <button
                 key={option}
-                variant={filter === option ? "default" : "outline"}
-                size="sm"
                 onClick={() => setFilter(option)}
+                className={`px-5 py-2.5 text-base font-medium rounded-full transition-colors ${
+                  filter === option
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-muted text-muted-foreground hover:bg-muted/80"
+                }`}
                 data-testid={`button-filter-${option.toLowerCase()}`}
               >
                 {option === "Game" ? "Games" : option}
-              </Button>
+              </button>
             ))}
           </div>
         </header>
