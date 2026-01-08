@@ -42,16 +42,19 @@ export const projects: Project[] = [
     category: "Game",
     status: "Ongoing",
     series: "Legends of Alden",
-    shortPurpose: "The first entry in the Legends of Alden trilogy. A narrative-driven RPG where I owned the player gameplay systems and served as team lead.",
-    purpose: "Legends of Alden: Origins is the foundation of an evolving trilogy. This first entry establishes the core gameplay loop, world-building, and player systems that will carry through the series. Built with a focus on creating a strong gameplay foundation that can be expanded and refined over time.",
-    role: "Team Lead & Gameplay Systems Owner. I designed and implemented all player-facing gameplay systems including movement, combat, and camera control. Other aspects of the game will be rebuilt and expanded as part of the ongoing trilogy development.",
+    shortPurpose:
+      "The first entry in the Legends of Alden trilogy. A narrative-driven RPG where I owned the player gameplay systems and served as team lead.",
+    purpose:
+      "Legends of Alden is a long-term action RPG project designed to explore player-centric gameplay systems and scalable architecture.\n\nThe project emphasizes building strong foundations first — movement, combat, and state-driven behavior — before expanding content and scope in later iterations.",
+    role: "I led a team of four developers and was responsible for setting up the project structure, defining tasks, and implementing the core gameplay systems.\n\nI owned all player-side mechanics and foundational systems, while coordinating development and ensuring technical consistency across the project.",
     systemsBullets: [
-      "Movement: walk/run/jump",
-      "Camera control",
-      "Combat: attack",
-      "Damage + death flow",
+      "Player locomotion system (run, jump, air control)",
+      "Sword combat system with 4-hit combo chain",
+      "Dash attack and evasive roll / dodge mechanics",
+      "Player state machine (movement, combat, damage, death)",
+      "Damage handling and death flow",
     ],
-    tech: ["Unity", "C#", "Addressables", "SQLite"],
+    tech: ["Unity", "C#", "State Machine"],
     links: {
       github: "https://github.com/example/legends-of-alden-1",
       demo: "https://example.com/play/legends-1",
@@ -60,14 +63,12 @@ export const projects: Project[] = [
       type: "image",
       src: "https://placehold.co/1200x675/1a1a2e/ffffff/png?text=Legends+of+Alden+I",
       alt: "Legends of Alden I featured image",
-      caption: "Main gameplay screenshot from Legends of Alden I",
     },
     media: [
       {
         type: "image",
         src: "https://placehold.co/800x450/2d2d44/ffffff/png?text=Combat+System",
         alt: "Combat system screenshot",
-        caption: "The combat system in action",
       },
       {
         type: "image",
@@ -89,8 +90,10 @@ export const projects: Project[] = [
     category: "Game",
     status: "Ongoing",
     series: "Legends of Alden",
-    shortPurpose: "The second entry in the trilogy. Expanding the Alden universe with refined gameplay systems and deeper mechanics.",
-    purpose: "Legends of Alden: The Awakening builds on the foundation of Origins, refining core systems and introducing new gameplay mechanics. This entry focuses on iterating on what worked while expanding the scope of player interactions and world design.",
+    shortPurpose:
+      "The second entry in the trilogy. Expanding the Alden universe with refined gameplay systems and deeper mechanics.",
+    purpose:
+      "Legends of Alden: The Awakening builds on the foundation of Origins, refining core systems and introducing new gameplay mechanics. This entry focuses on iterating on what worked while expanding the scope of player interactions and world design.",
     role: "Team Lead & Gameplay Systems Owner. Continuing my ownership of all player gameplay systems, I'm refining the movement and combat systems while building out more complex player interactions. Other systems will be developed and integrated as the trilogy evolves.",
     systemsBullets: [
       "Movement: walk/run/jump",
@@ -109,8 +112,10 @@ export const projects: Project[] = [
     category: "Game",
     status: "Ongoing",
     series: "Legends of Alden",
-    shortPurpose: "A small Unreal mini-RPG built by a team of two, focusing on gameplay systems and scalable architecture.",
-    purpose: "Legends of Alden: Echoes is a focused mini-RPG built collaboratively with my brother. This entry emphasizes clean, scalable architecture and demonstrates how solid gameplay foundations can support a complete game experience even with a small team.",
+    shortPurpose:
+      "A small Unreal mini-RPG built by a team of two, focusing on gameplay systems and scalable architecture.",
+    purpose:
+      "Legends of Alden: Echoes is a focused mini-RPG built collaboratively with my brother. This entry emphasizes clean, scalable architecture and demonstrates how solid gameplay foundations can support a complete game experience even with a small team.",
     role: "Co-Developer (team of 2). Working alongside my brother, I'm responsible for all gameplay systems implementation and establishing the technical architecture. Our small team size allows for rapid iteration and tight feedback loops on gameplay feel.",
     systemsBullets: [
       "Core player controller with responsive movement",
@@ -125,8 +130,10 @@ export const projects: Project[] = [
     title: "Heist Gone Wrong",
     category: "Game",
     status: "In Progress",
-    shortPurpose: "A stealth puzzle game developed with a university club. I contribute gameplay systems and provide team leadership.",
-    purpose: "Heist Gone Wrong is a collaborative stealth puzzle game developed with my university game development club. The game challenges players to navigate through increasingly complex levels using stealth, timing, and puzzle-solving skills.",
+    shortPurpose:
+      "A stealth puzzle game developed with a university club. I contribute gameplay systems and provide team leadership.",
+    purpose:
+      "Heist Gone Wrong is a collaborative stealth puzzle game developed with my university game development club. The game challenges players to navigate through increasingly complex levels using stealth, timing, and puzzle-solving skills.",
     role: "Systems Developer & Team Lead. I contribute core gameplay systems including AI behavior and level mechanics, while also providing leadership and mentorship to club members. This project combines technical development with team coordination.",
     systemsBullets: [
       "AI patrol system with vision cones and alert states",
@@ -144,8 +151,10 @@ export const projects: Project[] = [
     title: "ABET Accreditation Portal",
     category: "Software",
     status: "In Progress",
-    shortPurpose: "A full-stack web application for managing ABET accreditation workflows. Built with C#/.NET, featuring authentication, Entity Framework Core, and RESTful APIs.",
-    purpose: "The ABET Accreditation Portal streamlines the complex process of academic accreditation documentation. This is a serious backend-focused project that handles sensitive academic data through secure, well-architected APIs and database operations.",
+    shortPurpose:
+      "A full-stack web application for managing ABET accreditation workflows. Built with C#/.NET, featuring authentication, Entity Framework Core, and RESTful APIs.",
+    purpose:
+      "The ABET Accreditation Portal streamlines the complex process of academic accreditation documentation. This is a serious backend-focused project that handles sensitive academic data through secure, well-architected APIs and database operations.",
     role: "Full-Stack Developer. I designed and implemented the complete backend architecture including authentication systems, database schema, and RESTful API endpoints. The frontend provides intuitive interfaces for faculty and administrators to manage accreditation workflows.",
     systemsBullets: [
       "Authentication and authorization with role-based access control",
@@ -154,7 +163,14 @@ export const projects: Project[] = [
       "Document management with versioning and audit trails",
       "Dashboard visualizations for outcome metrics",
     ],
-    tech: ["C#", ".NET", "Entity Framework Core", "SQL Server", "React", "Docker"],
+    tech: [
+      "C#",
+      ".NET",
+      "Entity Framework Core",
+      "SQL Server",
+      "React",
+      "Docker",
+    ],
     links: {
       github: "https://github.com/example/abet-portal",
     },
