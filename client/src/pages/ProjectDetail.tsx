@@ -152,16 +152,24 @@ export default function ProjectDetail() {
 
         <section className="mb-12">
           <h2 className="text-2xl font-semibold text-foreground mb-4" data-testid="text-section-purpose">Purpose</h2>
-          <p className="text-muted-foreground leading-relaxed max-w-3xl" data-testid="text-project-purpose">
-            {project.purpose}
-          </p>
+          <div className="space-y-4 max-w-3xl" data-testid="text-project-purpose">
+            {project.purpose.split("\n\n").map((paragraph, index) => (
+              <p key={index} className="text-muted-foreground leading-relaxed">
+                {paragraph}
+              </p>
+            ))}
+          </div>
         </section>
 
         <section className="mb-12">
           <h2 className="text-2xl font-semibold text-foreground mb-4" data-testid="text-section-role">My Role / Ownership</h2>
-          <p className="text-muted-foreground leading-relaxed max-w-3xl" data-testid="text-project-role">
-            {project.role}
-          </p>
+          <div className="space-y-4 max-w-3xl" data-testid="text-project-role">
+            {project.role.split("\n\n").map((paragraph, index) => (
+              <p key={index} className="text-muted-foreground leading-relaxed">
+                {paragraph}
+              </p>
+            ))}
+          </div>
         </section>
 
         <section className="mb-12">

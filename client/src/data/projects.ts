@@ -45,8 +45,13 @@ export const projects: Project[] = [
     shortPurpose:
       "The first entry in the Legends of Alden trilogy. A narrative-driven RPG where I owned the player gameplay systems and served as team lead.",
     purpose:
-      "Legends of Alden is a long-term action RPG project designed to explore player-centric gameplay systems and scalable architecture.\n\nThe project emphasizes building strong foundations first — movement, combat, and state-driven behavior — before expanding content and scope in later iterations.",
-    role: "I led a team of four developers and was responsible for setting up the project structure, defining tasks, and implementing the core gameplay systems.\n\nI owned all player-side mechanics and foundational systems, while coordinating development and ensuring technical consistency across the project.",
+      "Legends of Alden is a long-term action RPG project designed to explore player-centric gameplay systems and scalable architecture.\n\n" +
+      "The project emphasizes building strong foundations first — movement, combat, and state-driven behavior — before expanding content and scope in later iterations.\n\n" +
+      "This project is part of a long-term series and serves as a foundation for future refactoring, architectural improvements, and expanded gameplay systems.",
+    role:
+      "I led a team of four developers and set up the project structure, task breakdown, and core gameplay systems.\n\n" +
+      "I personally implemented all player-side mechanics and foundational systems.\n\n" +
+      "This project is designed as a long-term codebase and will continue to evolve through refactoring and architectural improvements.",
     systemsBullets: [
       "Player locomotion system (run, jump, air control)",
       "Sword combat system with 4-hit combo chain",
@@ -54,7 +59,7 @@ export const projects: Project[] = [
       "Player state machine (movement, combat, damage, death)",
       "Damage handling and death flow",
     ],
-    tech: ["Unity", "C#", "State Machine"],
+    tech: ["Unity 2D", "C#", "State Machine"],
     links: {
       github: "https://github.com/example/legends-of-alden-1",
       demo: "https://example.com/play/legends-1",
