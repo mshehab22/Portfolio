@@ -61,7 +61,7 @@ export const projects: Project[] = [
     ],
     tech: ["Unity 2D", "C#", "State Machine"],
     links: {
-      github: "https://github.com/example/legends-of-alden-1",
+      github: "https://github.com/mshehab22/LegendsOfAlden1",
       demo: "https://example.com/play/legends-1",
     },
     featuredMedia: {
@@ -96,20 +96,42 @@ export const projects: Project[] = [
     status: "Ongoing",
     series: "Legends of Alden",
     shortPurpose:
-      "The second entry in the trilogy. Expanding the Alden universe with refined gameplay systems and deeper mechanics.",
-    purpose:
-      "Legends of Alden: The Awakening builds on the foundation of Origins, refining core systems and introducing new gameplay mechanics. This entry focuses on iterating on what worked while expanding the scope of player interactions and world design.",
-    role: "Team Lead & Gameplay Systems Owner. Continuing my ownership of all player gameplay systems, I'm refining the movement and combat systems while building out more complex player interactions. Other systems will be developed and integrated as the trilogy evolves.",
+      "A gameplay-focused prototype built to explore advanced combat, spellcasting, and scalable gameplay architecture. Systems-first, not content-polish.",
+    purpose: `Legends of Alden II is a gameplay systems prototype designed to expand on the foundations established in LOA1.
+
+The goal was to explore combat flow, spellcasting mechanics, and scalable gameplay architecture before committing to full production content.
+
+The project prioritizes system clarity, extensibility, and iteration over visuals, level design, or balance.
+
+Gameplay systems are functional and testable. Content and visuals are intentionally minimal. Some systems are experimental and may be refactored.
+
+Future plans include refactoring and cleaning up architecture, improving animation blending, expanding enemy behavior, and adding content only after systems stabilize.`,
+    role: `I focused on core gameplay systems and architecture, including player control, combat logic, targeting, and state-driven behavior.
+
+My goal was to build modular, debuggable systems that can be expanded and refactored over time.`,
     systemsBullets: [
-      "Movement: walk/run/jump",
-      "Camera control",
-      "Combat: attack",
-      "Damage + death flow",
+      "Custom player state machine (movement, combat, targeting, spellcasting states)",
+      "Combat system: light/heavy/sprint attacks with animation-driven timing",
+      "Spellcasting system: projectile spells, aiming, collision + damage, stick/fade cleanup",
+      "Targeting / lock-on system with context-sensitive rotation and movement",
+      "Damage & health system with invulnerability windows and death transitions",
+      "Animator layering: upper-body casting over locomotion",
     ],
-    tech: ["Unreal Engine", "C++", "Blueprints", "Steam SDK"],
+    tech: ["Unity", "C#", "State Machine", "Animator", "Combat Systems", "Spellcasting"],
     links: {
-      video: "https://youtube.com/watch?v=example",
+      github: "https://github.com/mshehab22/REPO_NAME_HERE", // TODO: Update with actual LOA2 repo URL
     },
+    featuredMedia: {
+      type: "image",
+      src: "https://placehold.co/1200x675/1a1a2e/ffffff/png?text=Legends+of+Alden+II",
+      alt: "Legends of Alden II featured image",
+    },
+    // TODO: Add screenshots for:
+    // - "Combat combo in action"
+    // - "Spell projectile + hit"
+    // - "Lock-on / targeting mode"
+    // - "State machine debug view (optional)"
+    // - "Damage/death transition"
   },
   {
     slug: "legends-of-alden-3",
