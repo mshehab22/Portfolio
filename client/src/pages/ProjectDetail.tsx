@@ -246,7 +246,7 @@ export default function ProjectDetail() {
               className="text-2xl font-semibold text-foreground mb-6"
               data-testid="text-section-current-focus"
             >
-              Current Focus
+              Actively In Development
             </h2>
             <ul className="space-y-3">
               {project.currentFocus.map((item, index) => (
