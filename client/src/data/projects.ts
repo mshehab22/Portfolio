@@ -96,25 +96,22 @@ export const projects: Project[] = [
     status: "Ongoing",
     series: "Legends of Alden",
     shortPurpose:
-      "A gameplay-focused prototype built to explore advanced combat, spellcasting, and scalable gameplay architecture. Systems-first, not content-polish.",
-    purpose: `Legends of Alden II is a gameplay systems prototype designed to expand on the foundations established in Legends of Alden I.
+      "3D sequel prototype to Legends of Alden I focused on gameplay systems — combat flow, targeting, and a scalable player foundation.",
+    purpose: `Legends of Alden II is the second entry in the Legends of Alden series and my first deeper step into 3D.
 
-The goal was to explore combat flow, spellcasting mechanics, and scalable gameplay architecture before committing to full production content.
+The goal of this project was to build a strong gameplay foundation first — player control, combat flow, targeting, and state-driven behavior — so the project can expand later without rewriting the core.
 
-The project prioritizes system clarity, extensibility, and iteration over visuals, level design, or balance.
+This is a systems-first prototype. I plan to return to it later, clean it up, and evolve it into a more complete game once the foundation is stable.`,
+    role: `I built and integrated the core gameplay systems, focusing on player control, combat logic, targeting, and state-driven behavior.
 
-Gameplay systems are functional and testable. Content and visuals are intentionally minimal. Some systems are experimental and may be refactored.
-
-Future plans include refactoring and cleaning up architecture, improving animation blending, expanding enemy behavior, and adding content only after systems stabilize.`,
-    role: `I focused on core gameplay systems and architecture, including player control, combat logic, targeting, and state-driven behavior.
-
-My goal was to build modular, debuggable systems that can be expanded and refactored over time.`,
+This project began as a team assignment for a game design class, but moving forward I'm continuing development independently.`,
     systemsBullets: [
-      "Custom player state machine (movement, combat, targeting, spellcasting states)",
-      "Combat system: light/heavy/sprint attacks with animation-driven timing",
-      "Spellcasting system: projectile spells, aiming, collision + damage, stick/fade cleanup",
-      "Targeting / lock-on system with context-sensitive rotation and movement",
-      "Damage & health system with invulnerability windows and death transitions",
+      "3D locomotion + camera control (movement, jumping, falling)",
+      "Custom player state machine (movement, targeting, combat, casting)",
+      "Combat system (light/heavy/sprint attacks with timing and transitions)",
+      "Spellcasting prototype (projectiles, aiming, collision + damage, cleanup)",
+      "Targeting / lock-on behavior with context-sensitive rotation",
+      "Health, damage, and death state transitions",
     ],
     tech: ["Unity 3D", "C#"],
     links: {
