@@ -22,6 +22,7 @@ export interface Project {
   purpose: string;
   role: string;
   systemsBullets: string[];
+  systemsNote?: string;
   tech: string[];
   links?: {
     github?: string;
@@ -33,6 +34,7 @@ export interface Project {
   series?: string;
   featuredMedia?: MediaItem;
   media?: MediaItem[];
+  currentFocus?: string[];
 }
 
 export const projects: Project[] = [
@@ -42,16 +44,20 @@ export const projects: Project[] = [
     category: "Game",
     status: "Ongoing",
     series: "Legends of Alden",
+
     shortPurpose:
       "The first entry in the Legends of Alden trilogy. A narrative-driven RPG where I owned the player gameplay systems and served as team lead.",
+
     purpose:
       "Legends of Alden is a long-term action RPG project designed to explore player-centric gameplay systems and scalable architecture.\n\n" +
       "The project emphasizes building strong foundations first — movement, combat, and state-driven behavior — before expanding content and scope in later iterations.\n\n" +
       "This project is part of a long-term series and serves as a foundation for future refactoring, architectural improvements, and expanded gameplay systems.",
+
     role:
       "I led a team of four developers and set up the project structure, task breakdown, and core gameplay systems.\n\n" +
       "I personally implemented all player-side mechanics and foundational systems.\n\n" +
       "This project is designed as a long-term codebase and will continue to evolve through refactoring and architectural improvements.",
+
     systemsBullets: [
       "Player locomotion system (run, jump, air control)",
       "Sword combat system with 4-hit combo chain",
@@ -59,16 +65,20 @@ export const projects: Project[] = [
       "Player state machine (movement, combat, damage, death)",
       "Damage handling and death flow",
     ],
+
     tech: ["Unity 2D", "C#"],
+
     links: {
       github: "https://github.com/mshehab22/LegendsOfAlden1",
       demo: "https://example.com/play/legends-1",
     },
+
     featuredMedia: {
       type: "image",
       src: "https://placehold.co/1200x675/1a1a2e/ffffff/png?text=Legends+of+Alden+I",
       alt: "Legends of Alden I featured image",
     },
+
     media: [
       {
         type: "image",
@@ -89,6 +99,7 @@ export const projects: Project[] = [
       },
     ],
   },
+
   {
     slug: "legends-of-alden-2",
     title: "Legends of Alden II",
@@ -104,15 +115,17 @@ The goal of this project was to build a strong gameplay foundation first — pla
 This is a systems-first prototype. I plan to return to it later, clean it up, and evolve it into a more complete game once the foundation is stable.`,
     role: `I built and integrated the core gameplay systems, focusing on player control, combat logic, targeting, and state-driven behavior.
 
-This project began as a team assignment for a game design class, but moving forward I'm continuing development independently.`,
+This project began as a team assignment for a game design class. Moving forward, I am continuing development independently with the intent of refining architecture and expanding gameplay.`,
     systemsBullets: [
-      "3D locomotion + camera control (movement, jumping, falling)",
-      "Custom player state machine (movement, targeting, combat, casting)",
-      "Combat system (light/heavy/sprint attacks with timing and transitions)",
-      "Spellcasting prototype (projectiles, aiming, collision + damage, cleanup)",
+      "3D locomotion and camera control (movement, jumping, falling)",
+      "State-machine driven player controller (modular movement, combat, targeting, casting)",
+      "Combat system with light, heavy, and sprint attacks using timed transitions",
+      "Spellcasting prototype (projectiles, aiming, collision, damage)",
       "Targeting / lock-on behavior with context-sensitive rotation",
       "Health, damage, and death state transitions",
     ],
+    systemsNote:
+      "The custom state machine is the backbone of this prototype. It separates movement, combat, targeting, and casting into clear states so new mechanics can be added later without rewriting core logic.",
     tech: ["Unity 3D", "C#"],
     links: {
       github: "https://github.com/mshehab22/LegendsOfAlden2",
@@ -177,22 +190,31 @@ This project began as a team assignment for a game design class, but moving forw
     shortPurpose:
       "A full-stack web application for managing ABET accreditation workflows. Built with C#/.NET, featuring authentication, Entity Framework Core, and RESTful APIs.",
     purpose:
-      "The ABET Accreditation Portal streamlines the complex process of academic accreditation documentation. This is a serious backend-focused project that handles sensitive academic data through secure, well-architected APIs and database operations.",
-    role: "Full-Stack Developer. I designed and implemented the complete backend architecture including authentication systems, database schema, and RESTful API endpoints. The frontend provides intuitive interfaces for faculty and administrators to manage accreditation workflows.",
+      "The ABET Accreditation Portal is a real client senior design project intended for use by the University of Michigan-Dearborn to support ABET accreditation workflows. The system is designed to help faculty and administrators securely manage accreditation-related data such as users, courses, and outcomes, and to support future evaluation and reporting needs.",
+    role:
+      "Backend Developer (Senior Design)\n" +
+      "I own the backend architecture and implementation. I built the API foundation, authentication flows, Entity Framework Core data layer, database migrations, and automated tests. Frontend development is handled by other team members.",
     systemsBullets: [
-      "Authentication and authorization with role-based access control",
-      "Entity Framework Core with SQL Server database",
-      "RESTful API design following best practices",
-      "Document management with versioning and audit trails",
-      "Dashboard visualizations for outcome metrics",
+      "RESTful API built with ASP.NET Core",
+      "Authentication endpoints (login and password reset)",
+      "Secure password hashing",
+      "DTO-based API contracts",
+      "Entity Framework Core with migrations (using SQLite during development)",
+      "Layered solution architecture (API / Core / Infrastructure)",
+      "Automated tests for authentication and user workflows",
     ],
     tech: [
       "C#",
       ".NET",
       "Entity Framework Core",
-      "SQL Server",
-      "React",
-      "Docker",
+      "SQLite (dev)",
+      "xUnit",
+      "Swagger / OpenAPI",
+    ],
+    currentFocus: [
+      "Expanding domain models (departments, courses, outcomes)",
+      "Role-based authorization for faculty and administrators",
+      "Preparing database migration for production deployment",
     ],
     links: {
       github: "https://github.com/example/abet-portal",

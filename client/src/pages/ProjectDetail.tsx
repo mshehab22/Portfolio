@@ -18,7 +18,9 @@ export default function ProjectDetail() {
     return (
       <Layout>
         <div className="mx-auto max-w-6xl px-6 md:px-8 py-16 md:py-24 text-center">
-          <h1 className="text-2xl font-semibold text-foreground mb-4">Project Not Found</h1>
+          <h1 className="text-2xl font-semibold text-foreground mb-4">
+            Project Not Found
+          </h1>
           <p className="text-muted-foreground mb-8">
             The project you're looking for doesn't exist.
           </p>
@@ -34,15 +36,21 @@ export default function ProjectDetail() {
   }
 
   const isGame = project.category === "Game";
-  const systemsHeading = isGame ? "Gameplay Systems Implemented" : "Systems & Features";
-  const hasMedia = project.featuredMedia || (project.media && project.media.length > 0);
+  const systemsHeading = isGame
+    ? "Gameplay Systems Implemented"
+    : "Systems & Features";
+  const hasMedia =
+    project.featuredMedia || (project.media && project.media.length > 0);
 
   return (
     <Layout>
       <article className="mx-auto max-w-6xl px-6 md:px-8 py-16 md:py-24">
         <nav className="mb-8">
           <Link href="/projects" data-testid="nav-breadcrumb-projects">
-            <span className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors" data-testid="link-breadcrumb-projects">
+            <span
+              className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+              data-testid="link-breadcrumb-projects"
+            >
               <ArrowLeft className="h-4 w-4" />
               Back to Projects
             </span>
@@ -50,20 +58,33 @@ export default function ProjectDetail() {
         </nav>
 
         <header className="mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6" data-testid="text-project-title">
+          <h1
+            className="text-4xl md:text-5xl font-bold text-foreground mb-6"
+            data-testid="text-project-title"
+          >
             {project.title}
           </h1>
-          
+
           <div className="flex flex-wrap items-center gap-4 mb-6">
-            <Tag variant="category" data-testid="text-detail-category">{project.category}</Tag>
-            <StatusIndicator status={project.status} data-testid="text-detail-status" />
+            <Tag variant="category" data-testid="text-detail-category">
+              {project.category}
+            </Tag>
+            <StatusIndicator
+              status={project.status}
+              data-testid="text-detail-status"
+            />
           </div>
         </header>
 
         {hasMedia && (
           <section className="mb-12" data-testid="section-media">
-            <h2 className="text-2xl font-semibold text-foreground mb-6" data-testid="text-section-media">Media</h2>
-            
+            <h2
+              className="text-2xl font-semibold text-foreground mb-6"
+              data-testid="text-section-media"
+            >
+              Media
+            </h2>
+
             {project.featuredMedia && (
               <div className="mb-6">
                 <button
@@ -100,7 +121,10 @@ export default function ProjectDetail() {
                   )}
                 </button>
                 {project.featuredMedia.caption && (
-                  <p className="text-sm text-muted-foreground mt-2 text-center" data-testid="text-featured-caption">
+                  <p
+                    className="text-sm text-muted-foreground mt-2 text-center"
+                    data-testid="text-featured-caption"
+                  >
                     {project.featuredMedia.caption}
                   </p>
                 )}
@@ -151,8 +175,16 @@ export default function ProjectDetail() {
         )}
 
         <section className="mb-12">
-          <h2 className="text-2xl font-semibold text-foreground mb-4" data-testid="text-section-purpose">Purpose</h2>
-          <div className="space-y-4 max-w-3xl" data-testid="text-project-purpose">
+          <h2
+            className="text-2xl font-semibold text-foreground mb-4"
+            data-testid="text-section-purpose"
+          >
+            Purpose
+          </h2>
+          <div
+            className="space-y-4 max-w-3xl"
+            data-testid="text-project-purpose"
+          >
             {project.purpose.split("\n\n").map((paragraph, index) => (
               <p key={index} className="text-muted-foreground leading-relaxed">
                 {paragraph}
@@ -162,7 +194,12 @@ export default function ProjectDetail() {
         </section>
 
         <section className="mb-12">
-          <h2 className="text-2xl font-semibold text-foreground mb-4" data-testid="text-section-role">My Role / Ownership</h2>
+          <h2
+            className="text-2xl font-semibold text-foreground mb-4"
+            data-testid="text-section-role"
+          >
+            My Role / Ownership
+          </h2>
           <div className="space-y-4 max-w-3xl" data-testid="text-project-role">
             {project.role.split("\n\n").map((paragraph, index) => (
               <p key={index} className="text-muted-foreground leading-relaxed">
@@ -173,32 +210,91 @@ export default function ProjectDetail() {
         </section>
 
         <section className="mb-12">
-          <h2 className="text-2xl font-semibold text-foreground mb-6" data-testid="text-section-systems">{systemsHeading}</h2>
+          <h2
+            className="text-2xl font-semibold text-foreground mb-6"
+            data-testid="text-section-systems"
+          >
+            {systemsHeading}
+          </h2>
           <ul className="space-y-3">
             {project.systemsBullets.map((bullet, index) => (
-              <li key={index} className="flex items-start gap-3 text-muted-foreground" data-testid={`text-bullet-${index}`}>
+              <li
+                key={index}
+                className="flex items-start gap-3 text-muted-foreground"
+                data-testid={`text-bullet-${index}`}
+              >
                 <span className="mt-2 h-1.5 w-1.5 rounded-full bg-foreground flex-shrink-0" />
                 <span className="leading-relaxed">{bullet}</span>
               </li>
             ))}
           </ul>
+          {project.systemsNote && (
+            <div className="mt-4 rounded-lg border bg-muted/30 p-4">
+              <p className="text-sm font-semibold text-foreground">
+                Design note
+              </p>
+              <p className="mt-1 text-muted-foreground leading-relaxed">
+                {project.systemsNote}
+              </p>
+            </div>
+          )}
         </section>
 
+        {project.status === "In Progress" && project.currentFocus && project.currentFocus.length > 0 && (
+          <section className="mb-12">
+            <h2
+              className="text-2xl font-semibold text-foreground mb-6"
+              data-testid="text-section-current-focus"
+            >
+              Current Focus
+            </h2>
+            <ul className="space-y-3">
+              {project.currentFocus.map((item, index) => (
+                <li
+                  key={index}
+                  className="flex items-start gap-3 text-muted-foreground"
+                  data-testid={`text-focus-${index}`}
+                >
+                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-foreground flex-shrink-0" />
+                  <span className="leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
         <section className="mb-12">
-          <h2 className="text-2xl font-semibold text-foreground mb-6" data-testid="text-section-tech">Tech Stack</h2>
+          <h2
+            className="text-2xl font-semibold text-foreground mb-6"
+            data-testid="text-section-tech"
+          >
+            Tech Stack
+          </h2>
           <div className="flex flex-wrap gap-2">
             {project.tech.map((tech, index) => (
-              <Tag key={tech} data-testid={`text-detail-tech-${index}`}>{tech}</Tag>
+              <Tag key={tech} data-testid={`text-detail-tech-${index}`}>
+                {tech}
+              </Tag>
             ))}
           </div>
         </section>
 
         {project.links && Object.keys(project.links).length > 0 && (
           <section>
-            <h2 className="text-2xl font-semibold text-foreground mb-6" data-testid="text-section-links">Links</h2>
+            <h2
+              className="text-2xl font-semibold text-foreground mb-6"
+              data-testid="text-section-links"
+            >
+              Links
+            </h2>
             <div className="flex flex-wrap gap-3">
               {project.links.github && (
-                <a href={project.links.github} target="_blank" rel="noopener noreferrer" data-testid="anchor-github">
+                <a
+                  href={project.links.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-testid="anchor-github"
+                >
                   <Button variant="outline" data-testid="link-github">
                     <SiGithub className="mr-2 h-4 w-4" />
                     View on GitHub
@@ -206,7 +302,12 @@ export default function ProjectDetail() {
                 </a>
               )}
               {project.links.demo && (
-                <a href={project.links.demo} target="_blank" rel="noopener noreferrer" data-testid="anchor-demo">
+                <a
+                  href={project.links.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-testid="anchor-demo"
+                >
                   <Button data-testid="link-demo">
                     <ExternalLink className="mr-2 h-4 w-4" />
                     Live Demo
@@ -214,7 +315,12 @@ export default function ProjectDetail() {
                 </a>
               )}
               {project.links.video && (
-                <a href={project.links.video} target="_blank" rel="noopener noreferrer" data-testid="anchor-video">
+                <a
+                  href={project.links.video}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-testid="anchor-video"
+                >
                   <Button variant="outline" data-testid="link-video">
                     <SiYoutube className="mr-2 h-4 w-4" />
                     Watch Video
@@ -227,7 +333,10 @@ export default function ProjectDetail() {
       </article>
 
       {selectedMedia && (
-        <MediaModal media={selectedMedia} onClose={() => setSelectedMedia(null)} />
+        <MediaModal
+          media={selectedMedia}
+          onClose={() => setSelectedMedia(null)}
+        />
       )}
     </Layout>
   );
