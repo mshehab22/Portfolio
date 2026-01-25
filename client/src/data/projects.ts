@@ -208,7 +208,6 @@ This project began as a team assignment for a game design class. Moving forward,
       ".NET",
       "Entity Framework Core",
       "SQLite (dev)",
-      "xUnit",
       "Swagger / OpenAPI",
     ],
     currentFocus: [
@@ -217,7 +216,7 @@ This project began as a team assignment for a game design class. Moving forward,
       "Preparing database migration for production deployment",
     ],
     links: {
-      github: "https://github.com/example/abet-portal",
+      github: "https://github.com/mshehab22/ABET_Portal",
     },
   },
 ];
