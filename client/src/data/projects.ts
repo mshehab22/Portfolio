@@ -143,82 +143,199 @@ This project began as a team assignment for a game design class. Moving forward,
     // - "Damage/death transition"
   },
   {
-    slug: "legends-of-alden-3",
-    title: "Legends of Alden III",
-    category: "Game",
-    status: "Ongoing",
-    series: "Legends of Alden",
-    shortPurpose:
-      "A small Unreal mini-RPG built by a team of two, focusing on gameplay systems and scalable architecture.",
-    purpose:
-      "Legends of Alden: Echoes is a focused mini-RPG built collaboratively with my brother. This entry emphasizes clean, scalable architecture and demonstrates how solid gameplay foundations can support a complete game experience even with a small team.",
-    role: "Co-Developer (team of 2). Working alongside my brother, I'm responsible for all gameplay systems implementation and establishing the technical architecture. Our small team size allows for rapid iteration and tight feedback loops on gameplay feel.",
-    systemsBullets: [
-      "Core player controller with responsive movement",
-      "Modular combat system with extensible attack patterns",
-      "Scalable architecture designed for future expansion",
-      "Clean codebase emphasizing maintainability",
-    ],
-    tech: ["Unreal Engine", "C++", "Blueprints"],
+  slug: "legends-of-alden-3",
+  title: "Legends of Alden III",
+  category: "Game",
+  status: "In Progress",
+  series: "Legends of Alden",
+
+  shortPurpose:
+    "A third-person action combat prototype in Unreal Engine 5 focused on state-driven gameplay, animation-integrated combat, and scalable gameplay architecture.",
+
+  purpose:
+    "Legends of Alden III is a third-person action combat project focused on building scalable gameplay systems and clean architecture in Unreal Engine 5.\n\n" +
+    "The project emphasizes state-driven gameplay, reusable character systems, and deep integration between animation and gameplay logic.\n\n" +
+    "Rather than focusing on content, the goal is to build a strong technical foundation for combat systems, responsiveness, and long-term RPG scalability.",
+
+  role:
+    "I designed and implemented all core gameplay systems in C++, including player movement, combat mechanics, and interaction systems.\n\n" + 
+    "I architected a shared base character system used by both player and enemies to enable reusable combat behavior.\n\n" +
+    "I implemented state-driven logic, animation-integrated combat systems, and advanced mechanics such as motion warping and attack buffering.",
+
+  systemsBullets: [
+    "Third-person player controller using Enhanced Input (movement, camera, actions)",
+    "State-driven gameplay system (ActionState + CharacterState) controlling all transitions",
+    "Combat system with light/heavy attacks, dodging, and weapon equip/unequip",
+    "Directional dodge system using vector math (dot product + cross product → 8 directions)",
+    "Weapon-driven animation system (per-weapon attack montages, decoupled from character)",
+    "Box trace–based hit detection for accurate melee collision during attacks",
+    "Attack buffering system for smooth combo chaining",
+    "Attribute system (health, mana, regen, damage) implemented as reusable component",
+    "Interface-based interaction system for hits and pickups (decoupled design)",
+    "Animation-driven combat using root motion and motion warping for alignment with targets",
+    "Directional hit reaction system based on impact angle",
+    "Enemy AI loop (patrol, chase, attack) integrated with shared combat system",
+  ],
+
+  tech: ["Unreal Engine 5", "C++"],
+
+  links: {
+    github: "https://github.com/mshehab22/LegendsOfAlden3", 
+    demo: "", // add later
   },
-  {
-    slug: "heist-gone-wrong",
-    title: "Heist Gone Wrong",
-    category: "Game",
-    status: "In Progress",
-    shortPurpose:
-      "A stealth puzzle game developed with a university club. I contribute gameplay systems and provide team leadership.",
-    purpose:
-      "Heist Gone Wrong is a collaborative stealth puzzle game developed with my university game development club. The game challenges players to navigate through increasingly complex levels using stealth, timing, and puzzle-solving skills.",
-    role: "Systems Developer & Team Lead. I contribute core gameplay systems including AI behavior and level mechanics, while also providing leadership and mentorship to club members. This project combines technical development with team coordination.",
-    systemsBullets: [
-      "AI patrol system with vision cones and alert states",
-      "Sound propagation affecting enemy awareness",
-      "Stealth mechanics with detection thresholds",
-      "Puzzle elements integrated with stealth gameplay",
-    ],
-    tech: ["Unreal Engine", "C++", "Blueprints"],
-    links: {
-      github: "https://github.com/example/heist-gone-wrong",
+
+  featuredMedia: {
+    type: "image",
+    src: "https://placehold.co/1200x675/1a1a2e/ffffff/png?text=Legends+of+Alden+III",
+    alt: "Legends of Alden III gameplay",
+  },
+
+  media: [
+    {
+      type: "image",
+      src: "https://placehold.co/800x450/2d2d44/ffffff/png?text=Combat+System",
+      alt: "Combat system",
+      caption: "State-driven combat system with animation integration",
     },
-  },
-  {
-    slug: "abet-portal",
-    title: "ABET Accreditation Portal",
-    category: "Software",
-    status: "In Progress",
-    shortPurpose:
-      "A full-stack web application for managing ABET accreditation workflows. Built with C#/.NET, featuring authentication, Entity Framework Core, and RESTful APIs.",
-    purpose:
-      "The ABET Accreditation Portal is a real client senior design project intended for use by the University of Michigan-Dearborn to support ABET accreditation workflows. The system is designed to help faculty and administrators securely manage accreditation-related data such as users, courses, and outcomes, and to support future evaluation and reporting needs.",
-    role:
-      "Backend Developer (Senior Design)\n" +
-      "I own the backend architecture and implementation. I built the API foundation, authentication flows, Entity Framework Core data layer, database migrations, and automated tests. Frontend development is handled by other team members.",
-    systemsBullets: [
-      "RESTful API built with ASP.NET Core",
-      "Authentication endpoints (login and password reset)",
-      "Secure password hashing",
-      "DTO-based API contracts",
-      "Entity Framework Core with migrations (using SQLite during development)",
-      "Layered solution architecture (API / Core / Infrastructure)",
-      "Automated tests for authentication and user workflows",
-    ],
-    tech: [
-      "C#",
-      ".NET",
-      "Entity Framework Core",
-      "SQLite (dev)",
-      "Swagger / OpenAPI",
-    ],
-    currentFocus: [
-      "Expanding domain models (departments, courses, outcomes)",
-      "Role-based authorization for faculty and administrators",
-      "Preparing database migration for production deployment",
-    ],
-    links: {
-      github: "https://github.com/mshehab22/ABET_Portal",
+    {
+      type: "image",
+      src: "https://placehold.co/800x450/3d3d5c/ffffff/png?text=Motion+Warping",
+      alt: "Motion warping",
+      caption: "Motion warping aligning attacks dynamically with targets",
     },
+    {
+      type: "image",
+      src: "https://placehold.co/800x450/4d4d6e/ffffff/png?text=Enemy+AI",
+      alt: "Enemy AI",
+      caption: "Enemy AI system integrated with shared combat base",
+    },
+  ],
+},
+  {
+  slug: "lion-king-2d",
+  title: "Lion King 2D (Unity)",
+  category: "Game",
+  status: "Completed",
+
+  shortPurpose:
+    "A 2D platformer inspired by The Lion King, focused on player movement, traversal mechanics, and a complete boss fight experience.",
+
+  purpose:
+    "This project focuses on building a responsive 2D gameplay experience using Unity's physics system.\n\n" +
+    "The main goal was to design and integrate core gameplay systems including player movement, environmental interaction, and combat into a cohesive level.\n\n" +
+    "Special attention was given to player feel, responsiveness, and ensuring that traversal and combat systems work together smoothly within a complete gameplay loop.",
+
+  role:
+    "I implemented the player gameplay systems, including movement, jumping, and environmental interactions.\n\n" +
+    "I designed and built the final level, integrating traversal mechanics and combat into a complete experience.\n\n" +
+    "I also implemented the boss fight logic, including behavior flow and player interaction during combat.",
+
+  systemsBullets: [
+    "Physics-based 2D player controller using Rigidbody2D",
+    "Jumping system with tuned gravity and movement responsiveness",
+    "Environmental interaction system (climbing and swinging via triggers)",
+    "Boss fight system with behavior states (attack, idle, cooldown)",
+    "Animation-driven interactions integrated with gameplay mechanics",
+    "Final level design integrating traversal and combat systems",
+  ],
+
+  tech: ["Unity 2D", "C#"],
+
+  links: {
+    github: "", // add if you have it
+    demo: "",   // optional
   },
+
+  featuredMedia: {
+    type: "image",
+    src: "https://placehold.co/1200x675/1a1a2e/ffffff/png?text=Lion+King+2D",
+    alt: "Lion King 2D featured image",
+  },
+
+  media: [
+    {
+      type: "image",
+      src: "https://placehold.co/800x450/2d2d44/ffffff/png?text=Player+Movement",
+      alt: "Player movement system",
+      caption: "Responsive player movement and jumping system",
+    },
+    {
+      type: "image",
+      src: "https://placehold.co/800x450/3d3d5c/ffffff/png?text=Boss+Fight",
+      alt: "Boss fight",
+      caption: "Final boss fight with attack behavior states",
+    },
+    {
+      type: "image",
+      src: "https://placehold.co/800x450/4d4d6e/ffffff/png?text=Traversal",
+      alt: "Traversal mechanics",
+      caption: "Climbing and swinging using environmental triggers",
+    },
+  ],
+},
+  {
+  slug: "abet-accreditation-portal",
+  title: "ABET Accreditation Portal",
+  category: "Software",
+  status: "Completed",
+
+  shortPurpose:
+    "A multi-role backend system that automates ABET accreditation workflows, replacing manual processes with a state-driven, role-secured platform.",
+
+  purpose:
+    "The ABET Accreditation Portal is a backend system designed to manage accreditation workflows for a university department.\n\n" +
+    "The system enforces state-driven report lifecycles, role-based access control, and relational data integrity across multiple user roles (Admin, Chair, Faculty, Evaluator).\n\n" +
+    "The project focuses on workflow correctness, secure authorization, and scalable backend architecture using ASP.NET Core and Entity Framework Core.",
+
+  role:
+    "Backend Developer in a 4-person team, responsible for core backend architecture, data modeling, and workflow logic.\n\n" +
+    "Designed and implemented RESTful APIs, role-based authorization, report lifecycle management, and database schema using EF Core.\n\n" +
+    "Ensured clean separation of concerns (Controllers → Services → Entities) and built reusable, maintainable backend systems.",
+
+  systemsBullets: [
+    "RESTful API built with ASP.NET Core supporting multi-role workflows (Admin, Chair, Faculty, Evaluator)",
+    "State-driven report lifecycle system (Draft → Submitted → Approved/Rejected) with enforced transitions",
+    "JWT-based authentication with secure login and password reset functionality",
+    "Role-based authorization system with domain-level validation (department and ownership checks)",
+    "Relational database design using EF Core (Code First) with entities, relationships, and migrations",
+    "Service-layer architecture with DTOs to separate business logic from controllers",
+    "Dynamic search and filtering system using IQueryable composition for efficient queries",
+    "Notification system triggered by workflow events (approvals, revisions, evaluations)",
+  ],
+
+  tech: ["ASP.NET Core", "C#", "Entity Framework Core", "SQL Server"],
+
+  links: {
+    github: "https://github.com/mshehab22/ABET_Portal", 
+  },
+
+  featuredMedia: {
+    type: "image",
+    src: "https://placehold.co/1200x675/1a1a2e/ffffff/png?text=ABET+Portal",
+    alt: "ABET Accreditation Portal",
+  },
+
+  media: [
+    {
+      type: "image",
+      src: "https://placehold.co/800x450/2d2d44/ffffff/png?text=Dashboard",
+      alt: "Dashboard",
+      caption: "Multi-role dashboard for faculty, chairs, and evaluators",
+    },
+    {
+      type: "image",
+      src: "https://placehold.co/800x450/3d3d5c/ffffff/png?text=Workflow",
+      alt: "Workflow",
+      caption: "State-driven report lifecycle system",
+    },
+    {
+      type: "image",
+      src: "https://placehold.co/800x450/4d4d6e/ffffff/png?text=Reports",
+      alt: "Reports",
+      caption: "Report submission and evaluation system",
+    },
+  ],
+},
 ];
 
 export const getProjectBySlug = (slug: string): Project | undefined => {
